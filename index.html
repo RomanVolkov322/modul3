@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Flight</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/script.js"></script>
 </head>
 
 <body>
@@ -18,7 +20,7 @@
             <div class="navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link test-0-nav-1" href="#">Promotions</a>
+                        <a class="nav-link test-0-nav-1" href="#Promotions">Promotions</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link test-0-nav-2" href="#">Search</a>
@@ -27,14 +29,14 @@
                         <a class="nav-link test-0-nav-3" href="#">Check-in</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link test-0-nav-4" href="login.html">Personal area</a>
+                        <a class="nav-link test-0-nav-4" id="personal_area" href="#">Personal area</a>
                     </li>
 
                 </ul>
             </div>
         </div>
     </nav>
-
+<!-- Главная -->
     <div class="container">
         <section class="mt-5">
             <h2 class="mb-4">Flight search</h2>
@@ -160,7 +162,7 @@
                         <div class="invalid-feedback test-1-emps">Error message</div>
                     </div>
                     <div class="col-12 mt-4">
-                        <button class="btn btn-primary w-100 test-1-fbs">Log in</button>
+                        <button class="btn btn-primary w-100 test-1-fbs" id="login_button">Log in</button>
                         <div class="text-center mt-2">
                             Don't have an account yet? <a href="register.html" class="test-1-bsu">Sign up</a>
                             or
@@ -178,34 +180,34 @@
         <section class="mt-5 w-75">
             <h2 class="mb-5 text-center">Registration</h2>
 
-            <form action="#">
+            <form action="#" id="register_form">
                 <div class="row">
                     <div class="col-12 col-md-6">
-                        <input type="text" class="form-control is-invalid test-2-name" placeholder="Frist name">
-                        <div class="invalid-feedback test-1-emfn">Error message</div>
+                        <input type="text" class="form-control is-invalid test-2-name" placeholder="Frist name" id="frist_name" name="frist_name">
+                        <div class="invalid-feedback test-1-emfn"></div>
                     </div>
                     <div class="col-12 mt-3 col-md-6 mt-md-0">
-                        <input type="text" class="form-control is-invalid test-2-last" placeholder="Last name">
-                        <div class="invalid-feedback test-2-emln">Error message</div>
+                        <input type="text" class="form-control is-invalid test-2-last" placeholder="Last name" id="last_name" name="last_name">
+                        <div class="invalid-feedback test-2-emln"></div>
                     </div>
                     <div class="col-12 mt-3 col-md-6">
-                        <input type="text" class="form-control test-2-doc" placeholder="Document number">
-                        <div class="invalid-feedback test-2-emdn">Error message</div>
+                        <input type="text" class="form-control test-2-doc" placeholder="Document number" id="document_number" name="document_number">
+                        <div class="invalid-feedback test-2-emdn"></div>
                     </div>
                     <div class="col-12 mt-3 col-md-6">
-                        <input type="text" class="form-control test-2-phone" placeholder="Phone">
-                        <div class="invalid-feedback test-2-empn">Error message</div>
+                        <input type="text" class="form-control test-2-phone" placeholder="Phone" id="phone" name="phone">
+                        <div class="invalid-feedback test-2-empn"></div>
                     </div>
                     <div class="col-12 mt-3 col-md-6">
-                        <input type="password" class="form-control test-2-pass" placeholder="Password">
-                        <div class="invalid-feedback test-2-empw">Error message</div>
+                        <input type="password" class="form-control test-2-pass" placeholder="Password" id="password" name="password">
+                        <div class="invalid-feedback test-2-empw"></div>
                     </div>
                     <div class="col-12 mt-3 col-md-6">
-                        <input type="password" class="form-control test-2-pass2" placeholder="Password confirmation">
-                        <div class="invalid-feedback test-2-empw2">Error message</div>
+                        <input type="password" class="form-control test-2-pass2" placeholder="Password confirmation" id="password_confirm" name="password_confirm">
+                        <div class="invalid-feedback test-2-empw2"></div>
                     </div>
                     <div class="col-12 mt-3">
-                        <button class="btn btn-primary w-100 test-2-btn">Register now</button>
+                        <button class="btn btn-primary w-100 test-2-btn" id="register_button">Register now</button>
                         <div class="text-center mt-2">
                             Already have an account? <a href="login.html" class="test-2-blgn">Log in</a>
                             or
@@ -216,269 +218,7 @@
             </form>
         </section>
  </div>
- <!-- Бронирование -->
-<div id="booking" style="display: none;">
-    <div class="container">
-        <section class="mt-5">
-            <div class="d-flex justify-content-between align-items-start">
-                <h2 class="mb-4">
-                    Booking
-                </h2>
-                <a href="search.html" class="btn btn-sm btn-secondary test-5-bgoback">Back</a>
-            </div>
-
-            <div class="d-flex justify-content-between align-items-baseline mb-4">
-                <h4>Flight information</h4>
-            </div>
-
-            <table class="table table-hover table-bordered">
-                <tr>
-                    <th>Flight</th>
-                    <th>From where</th>
-                    <th>Date and time of departure</th>
-                    <th>To where</th>
-                    <th>Flight time</th>
-                    <th>Cost</th>
-                </tr>
-                <tr>
-                    <td class="test-5-fc">FC 2144</td>
-                    <td>Saransk,
-                    Saransk</td>
-                    <td>
-                        <span class="test-5-dd">10-02-2021</span>
-                        at
-                        <span class="test-5-dt">08:00</span>
-                    </td>
-                    <td class="test-5-to">
-                        <span class="test-5-to-cn">Moscow</span>,
-                        <span class="test-5-to-an">Sherementievo</span> 
-                    </td>
-                    <td class="test-5-at">09:30</td>
-                    <td class="test-5-fp">8000</td>
-                </tr>
-                <tr>
-                    <td class="test-5-fc">FC 2161</td>
-                    <td class="test-5-from">
-                        <span class="test-5-from-cn">Moscow</span>,
-                        <span class="test-5-from-an">Sherementievo</span> 
-                    </td>
-                    <td>
-                        <span class="test-5-dd">11-02-2021</span>
-                        at
-                        <span class="test-5-dt">10:00</span>
-                    </td>
-                    <td class="test-5-to">Saransk,
-                    Saransk</td>
-                    <td class="test-5-at">11:30</td>
-                    <td class="test-5-fp">9000</td>
-                </tr>
-                <tr>
-                    <td colspan="5" class="text-right">
-                        <b>Total cost</b>
-                    </td>
-                    <td colspan="1" class="text-right test-5-price">16000</td>
-                </tr>
-            </table>
-        </section>
-
-        <section class="mt-5">
-            <div class="d-flex justify-content-between align-items-baseline mb-4">
-                <h4>Passengers</h4>
-                <button class="btn btn-primary btn-sm test-5-add">Add passenger</button>
-            </div>
-
-            <form action="booking_management.html">
-
-                <div class="row">
-                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 pr-lg-0">
-                        <input type="text" class="form-control test-5-name w-100" placeholder="First name">
-                    </div>
-                    <div class="col-12 col-sm-6 col-lg-4 mt-3 col-xl-3 mt-sm-0 pr-lg-0">
-                        <input type="text" class="form-control test-5-last w-100" placeholder="Last name">
-                    </div>
-                    <div class="col-12 col-sm-6 col-lg-2 mt-3 col-xl-2 mt-lg-0 pr-lg-0">
-                        <input type="text" class="form-control test-5-dob" placeholder="Date of Birth">
-                    </div>
-                    <div class="col-12 col-sm-6 col-lg-2 mt-3 col-xl-2 mt-lg-0 pr-xl-0">
-                        <input type="text" class="form-control test-5-doc" placeholder="Document number">
-                    </div>
-                    <div class="col-12 col-xl-2 mt-3 mt-xl-0">
-                        <button class="btn btn-danger btn-sm form-control test-5-bremove">Remove</button>
-                    </div>
-                </div>
-
-                <button class="btn btn-success mt-4 form-control test-5-book">Confirm</button>
-            </form>
-        </section>
-    </div>
-</div>
-</div>
-<!-- Управление бронированием -->
- <div id="booking_again" style="display: none;">
-     <div class="container">
-        <section class="mt-5">
-
-            <div class="d-flex justify-content-between align-items-start">
-                <h2 class="mb-4">
-                    Booking
-                </h2>
-                <a href="search.html" class="btn btn-sm btn-secondary">Back</a>
-            </div>
-
-            <div class="d-flex justify-content-between align-items-baseline mb-4">
-                <h4>Flight information</h4>
-            </div>
-
-            <table class="table table-hover table-bordered">
-                <tr>
-                    <th>Flight</th>
-                    <th>From where</th>
-                    <th>Date and time of departure</th>
-                    <th>To where</th>
-                    <th>Flight time</th>
-                    <th>Cost</th>
-                </tr>
-                <tr>
-                    <td class="test-5-fc">FC 2144</td>
-                    <td class="test-5-from">Saransk</td>
-                    <td class="d-flex align-items-center">
-                        <input type="date" class="form-control mr-2">
-                        at
-                        <span class="test-5-dt ml-1">08:00</span>
-                    </td>
-                    <td class="test-5-to">Moscow</td>
-                    <td class="test-5-at">09:30</td>
-                    <td class="test-5-fp">8000</td>
-                </tr>
-                <tr>
-                    <td class="test-5-fc">FC 2161</td>
-                    <td class="test-5-from">Moscow</td>
-                    <td class="d-flex align-items-center">
-                        <input type="date" class="form-control mr-2">
-                        at
-                        <span class="test-5-dt ml-1">10:00</span>
-                    </td>
-                    <td class="test-5-to">Saransk</td>
-                    <td class="test-5-at">11:30</td>
-                    <td class="test-5-fp">9000</td>
-                </tr>
-                <tr>
-                    <td colspan="5" class="text-right test-5-price">
-                        <b>Total cost</b>
-                    </td>
-                    <td colspan="1" class="text-right test-5-price">16000</td>
-                </tr>
-            </table>
-        </section>
-
-        <section class="mt-5">
-            <div class="d-flex justify-content-between align-items-baseline mb-4">
-                <h4>Passengers</h4>
-                <button class="btn btn-primary btn-sm test-5-add">Add passenger</button>
-            </div>
-
-            <form action="booking_management.html">
-
-                <div class="row">
-                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 pr-lg-0">
-                        <input type="text" class="form-control test-5-name w-100" placeholder="First name">
-                    </div>
-                    <div class="col-12 col-sm-6 col-lg-4 mt-3 col-xl-3 mt-sm-0 pr-lg-0">
-                        <input type="text" class="form-control test-5-last w-100" placeholder="Last name">
-                    </div>
-                    <div class="col-12 col-sm-6 col-lg-2 mt-3 col-xl-2 mt-lg-0 pr-lg-0">
-                        <input type="text" class="form-control test-5-dob" placeholder="Date of Birth">
-                    </div>
-                    <div class="col-12 col-sm-6 col-lg-2 mt-3 col-xl-2 mt-lg-0 pr-xl-0">
-                        <input type="text" class="form-control test-5-doc" placeholder="Document number">
-                    </div>
-                    <div class="col-12 col-xl-2 mt-3 mt-xl-0">
-                        <button class="btn btn-danger btn-sm form-control test-0-fbs">Remove</button>
-                    </div>
-                </div>
-
-                <button class="btn btn-success mt-4 form-control test-5-book">Confirm</button>
-            </form>
-        </section>
- </div>
- </div>
-<!-- Информация о бронировании -->
- <div id="booking_managment" style="display: none;">
-     <div class="container">
-        <section class="mt-5">
-            <div class="d-flex justify-content-between align-items-start">
-                <h2 class="mb-4">
-                    Booking <span class="test-6-code">AFADS</span>
-                </h2>
-                <a href="index.html" class="btn btn-sm btn-secondary test-6-gohome">Home</a>
-            </div>
-            <p>Booking cost: <span class="test-6-tp">16000</span></p>
-            <div class="d-flex justify-content-between align-items-baseline mt-5 mb-2">
-                <h4>Flight information</h4>
-            </div>
-
-            <table class="table table-hover table-bordered">
-                <tr>
-                    <th>Flight</th>
-                    <th>Aircraft</th>
-                    <th>From where</th>
-                    <th>Date and time of departure</th>
-                    <th>To where</th>
-                    <th>Arrival time</th>
-                    <th>Flight time</th>
-                </tr>
-                <tr>
-                    <td class="test-6-fc">FC 2144</td>
-                    <td class="test-6-ac">Sukhoi Superjet 100</td>
-                    <td class="test-6-from">Moscow</td>
-                    <td>
-                        <span class="test-6-dd">10-02-2021</span>
-                        at
-                        <span class="test-6-dt">08:00</span>
-                    </td>
-                    <td class="test-6-to">Saransk</td>
-                    <td class="test-6-at">09:30</td>
-                    <td class="test-6-ft">
-                        <span class="test-6-fhour">1</span>h
-                        <span class="test-6-fminutes">30</span>min
-                    </td>
-                </tr>
-
-            </table>
-
-            <div class="d-flex justify-content-between align-items-baseline mt-5 mb-4">
-                <h4>Passengers</h4>
-            </div>
-            
-            <table class="table table-hover">
-                <tr>
-                    <th>First name</th>
-                    <th>Last name</th>
-                    <th>Date of Birth</th>
-                    <th>Document number</th>
-                    <th>Seat</th>
-                </tr>
-                <tr>
-                    <td class="test-6-name">John</td>
-                    <td class="test-6-last">Doe</td>
-                    <td class="test-6-dob">01-01-1990</td>
-                    <td class="test-6-doc">8484548413</td>
-                    <td class="test-6-seat">1B</td>
-                </tr>
-                <tr>
-                    <td class="test-6-name">Ivan</td>
-                    <td class="test-6-last">Ivanov</td>
-                    <td class="test-6-dob">24-10-2001</td>
-                    <td class="test-6-doc">6565752703</td>
-                    <td class="test-6-seat">2B</td>
-                </tr>
-
-            </table>
-            <a href="seat.html" class="btn btn-primary test-6-select">Select seats</a>
-        </section>
- </div>
- </div>
- <!-- Профиль -->
+<!-- Профиль -->
  <div id="profiel" style="display: none;">
      <div class="container">
         <section class="mt-5">
@@ -780,6 +520,268 @@
         </section>
     </div>
 </div>
+ <!-- Бронирование -->
+<div id="booking" style="display: none;">
+    <div class="container">
+        <section class="mt-5">
+            <div class="d-flex justify-content-between align-items-start">
+                <h2 class="mb-4">
+                    Booking
+                </h2>
+                <a href="search.html" class="btn btn-sm btn-secondary test-5-bgoback">Back</a>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-baseline mb-4">
+                <h4>Flight information</h4>
+            </div>
+
+            <table class="table table-hover table-bordered">
+                <tr>
+                    <th>Flight</th>
+                    <th>From where</th>
+                    <th>Date and time of departure</th>
+                    <th>To where</th>
+                    <th>Flight time</th>
+                    <th>Cost</th>
+                </tr>
+                <tr>
+                    <td class="test-5-fc">FC 2144</td>
+                    <td>Saransk,
+                    Saransk</td>
+                    <td>
+                        <span class="test-5-dd">10-02-2021</span>
+                        at
+                        <span class="test-5-dt">08:00</span>
+                    </td>
+                    <td class="test-5-to">
+                        <span class="test-5-to-cn">Moscow</span>,
+                        <span class="test-5-to-an">Sherementievo</span> 
+                    </td>
+                    <td class="test-5-at">09:30</td>
+                    <td class="test-5-fp">8000</td>
+                </tr>
+                <tr>
+                    <td class="test-5-fc">FC 2161</td>
+                    <td class="test-5-from">
+                        <span class="test-5-from-cn">Moscow</span>,
+                        <span class="test-5-from-an">Sherementievo</span> 
+                    </td>
+                    <td>
+                        <span class="test-5-dd">11-02-2021</span>
+                        at
+                        <span class="test-5-dt">10:00</span>
+                    </td>
+                    <td class="test-5-to">Saransk,
+                    Saransk</td>
+                    <td class="test-5-at">11:30</td>
+                    <td class="test-5-fp">9000</td>
+                </tr>
+                <tr>
+                    <td colspan="5" class="text-right">
+                        <b>Total cost</b>
+                    </td>
+                    <td colspan="1" class="text-right test-5-price">16000</td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="mt-5">
+            <div class="d-flex justify-content-between align-items-baseline mb-4">
+                <h4>Passengers</h4>
+                <button class="btn btn-primary btn-sm test-5-add">Add passenger</button>
+            </div>
+
+            <form action="booking_management.html">
+
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 pr-lg-0">
+                        <input type="text" class="form-control test-5-name w-100" placeholder="First name">
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-4 mt-3 col-xl-3 mt-sm-0 pr-lg-0">
+                        <input type="text" class="form-control test-5-last w-100" placeholder="Last name">
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-2 mt-3 col-xl-2 mt-lg-0 pr-lg-0">
+                        <input type="text" class="form-control test-5-dob" placeholder="Date of Birth">
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-2 mt-3 col-xl-2 mt-lg-0 pr-xl-0">
+                        <input type="text" class="form-control test-5-doc" placeholder="Document number">
+                    </div>
+                    <div class="col-12 col-xl-2 mt-3 mt-xl-0">
+                        <button class="btn btn-danger btn-sm form-control test-5-bremove">Remove</button>
+                    </div>
+                </div>
+
+                <button class="btn btn-success mt-4 form-control test-5-book">Confirm</button>
+            </form>
+        </section>
+    </div>
+</div>
+</div>
+<!-- Управление бронированием -->
+ <div id="booking_again" style="display: none;">
+     <div class="container">
+        <section class="mt-5">
+
+            <div class="d-flex justify-content-between align-items-start">
+                <h2 class="mb-4">
+                    Booking
+                </h2>
+                <a href="search.html" class="btn btn-sm btn-secondary">Back</a>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-baseline mb-4">
+                <h4>Flight information</h4>
+            </div>
+
+            <table class="table table-hover table-bordered">
+                <tr>
+                    <th>Flight</th>
+                    <th>From where</th>
+                    <th>Date and time of departure</th>
+                    <th>To where</th>
+                    <th>Flight time</th>
+                    <th>Cost</th>
+                </tr>
+                <tr>
+                    <td class="test-5-fc">FC 2144</td>
+                    <td class="test-5-from">Saransk</td>
+                    <td class="d-flex align-items-center">
+                        <input type="date" class="form-control mr-2">
+                        at
+                        <span class="test-5-dt ml-1">08:00</span>
+                    </td>
+                    <td class="test-5-to">Moscow</td>
+                    <td class="test-5-at">09:30</td>
+                    <td class="test-5-fp">8000</td>
+                </tr>
+                <tr>
+                    <td class="test-5-fc">FC 2161</td>
+                    <td class="test-5-from">Moscow</td>
+                    <td class="d-flex align-items-center">
+                        <input type="date" class="form-control mr-2">
+                        at
+                        <span class="test-5-dt ml-1">10:00</span>
+                    </td>
+                    <td class="test-5-to">Saransk</td>
+                    <td class="test-5-at">11:30</td>
+                    <td class="test-5-fp">9000</td>
+                </tr>
+                <tr>
+                    <td colspan="5" class="text-right test-5-price">
+                        <b>Total cost</b>
+                    </td>
+                    <td colspan="1" class="text-right test-5-price">16000</td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="mt-5">
+            <div class="d-flex justify-content-between align-items-baseline mb-4">
+                <h4>Passengers</h4>
+                <button class="btn btn-primary btn-sm test-5-add">Add passenger</button>
+            </div>
+
+            <form action="booking_management.html">
+
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 pr-lg-0">
+                        <input type="text" class="form-control test-5-name w-100" placeholder="First name">
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-4 mt-3 col-xl-3 mt-sm-0 pr-lg-0">
+                        <input type="text" class="form-control test-5-last w-100" placeholder="Last name">
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-2 mt-3 col-xl-2 mt-lg-0 pr-lg-0">
+                        <input type="text" class="form-control test-5-dob" placeholder="Date of Birth">
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-2 mt-3 col-xl-2 mt-lg-0 pr-xl-0">
+                        <input type="text" class="form-control test-5-doc" placeholder="Document number">
+                    </div>
+                    <div class="col-12 col-xl-2 mt-3 mt-xl-0">
+                        <button class="btn btn-danger btn-sm form-control test-0-fbs">Remove</button>
+                    </div>
+                </div>
+
+                <button class="btn btn-success mt-4 form-control test-5-book">Confirm</button>
+            </form>
+        </section>
+ </div>
+ </div>
+<!-- Информация о бронировании -->
+ <div id="booking_managment" style="display: none;">
+     <div class="container">
+        <section class="mt-5">
+            <div class="d-flex justify-content-between align-items-start">
+                <h2 class="mb-4">
+                    Booking <span class="test-6-code">AFADS</span>
+                </h2>
+                <a href="index.html" class="btn btn-sm btn-secondary test-6-gohome">Home</a>
+            </div>
+            <p>Booking cost: <span class="test-6-tp">16000</span></p>
+            <div class="d-flex justify-content-between align-items-baseline mt-5 mb-2">
+                <h4>Flight information</h4>
+            </div>
+
+            <table class="table table-hover table-bordered">
+                <tr>
+                    <th>Flight</th>
+                    <th>Aircraft</th>
+                    <th>From where</th>
+                    <th>Date and time of departure</th>
+                    <th>To where</th>
+                    <th>Arrival time</th>
+                    <th>Flight time</th>
+                </tr>
+                <tr>
+                    <td class="test-6-fc">FC 2144</td>
+                    <td class="test-6-ac">Sukhoi Superjet 100</td>
+                    <td class="test-6-from">Moscow</td>
+                    <td>
+                        <span class="test-6-dd">10-02-2021</span>
+                        at
+                        <span class="test-6-dt">08:00</span>
+                    </td>
+                    <td class="test-6-to">Saransk</td>
+                    <td class="test-6-at">09:30</td>
+                    <td class="test-6-ft">
+                        <span class="test-6-fhour">1</span>h
+                        <span class="test-6-fminutes">30</span>min
+                    </td>
+                </tr>
+
+            </table>
+
+            <div class="d-flex justify-content-between align-items-baseline mt-5 mb-4">
+                <h4>Passengers</h4>
+            </div>
+            
+            <table class="table table-hover">
+                <tr>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Date of Birth</th>
+                    <th>Document number</th>
+                    <th>Seat</th>
+                </tr>
+                <tr>
+                    <td class="test-6-name">John</td>
+                    <td class="test-6-last">Doe</td>
+                    <td class="test-6-dob">01-01-1990</td>
+                    <td class="test-6-doc">8484548413</td>
+                    <td class="test-6-seat">1B</td>
+                </tr>
+                <tr>
+                    <td class="test-6-name">Ivan</td>
+                    <td class="test-6-last">Ivanov</td>
+                    <td class="test-6-dob">24-10-2001</td>
+                    <td class="test-6-doc">6565752703</td>
+                    <td class="test-6-seat">2B</td>
+                </tr>
+
+            </table>
+            <a href="seat.html" class="btn btn-primary test-6-select">Select seats</a>
+        </section>
+ </div>
+ </div>
 <!-- Выбор места -->
 <div id="seat" style="display: none;">
     <div class="container-fluid">
@@ -1022,6 +1024,8 @@
         </div>
     </div>
 </div>
+
+
 
     <footer class="mt-5">
         <div class="container">
