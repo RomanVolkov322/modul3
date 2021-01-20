@@ -7,8 +7,9 @@
     <title>Flight</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="assets/js/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/script.js"></script>
+
 </head>
 
 <body>
@@ -29,7 +30,7 @@
                         <a class="nav-link test-0-nav-3" href="#">Check-in</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link test-0-nav-4" id="personal_area" href="#">Personal area</a>
+                        <a class="nav-link test-0-nav-4 personal_area" href="#">Personal area</a>
                     </li>
 
                 </ul>
@@ -37,6 +38,7 @@
         </div>
     </nav>
 <!-- Главная -->
+<div id="search">
     <div class="container">
         <section class="mt-5">
             <h2 class="mb-4">Flight search</h2>
@@ -78,6 +80,7 @@
                 </div>
             </form>
         </section>
+        
 
         <section class="mt-5">
             <h2 class="mb-4">Promotions</h2>
@@ -143,6 +146,7 @@
             </form>
         </section>
     </div>
+</div>
 
 <!-- Авторизация -->
 <div id="login" style="display: none;">
@@ -150,21 +154,21 @@
         <section class="mt-5 w-75">
             <h2 class="mb-5 text-center">Log in</h2>
 
-            <form action="profile.html">
+            <form action="profile.html" id="login_form">
                 <div class="row">
                     <div class="col-12">
                         <!-- is-invalid class show error message -->
-                        <input type="text" class="form-control is-invalid test-1-fpn" placeholder="Phone">
-                        <div class="invalid-feedback test-1-emph">Error message</div>
+                        <input type="text" class="form-control is-invalid test-1-fpn" placeholder="Phone" id="login_phone">
+                        <div class="invalid-feedback test-1-emph"  id="errorMess">Введите номер телефона</div>
                     </div>
                     <div class="col-12 mt-2">
-                        <input type="password" class="form-control test-1-fps" placeholder="Password">
-                        <div class="invalid-feedback test-1-emps">Error message</div>
+                        <input type="password" class="form-control test-1-fps" placeholder="Password" id="login_pass">
+                        <div class="invalid-feedback test-1-emps" id="errorMess">Введите пароль</div>
                     </div>
                     <div class="col-12 mt-4">
                         <button class="btn btn-primary w-100 test-1-fbs" id="login_button">Log in</button>
                         <div class="text-center mt-2">
-                            Don't have an account yet? <a href="register.html" class="test-1-bsu">Sign up</a>
+                            Don't have an account yet? <a href="#" class="test-1-bsu sign_up">Sign up</a>
                             or
                             <a href="index.html" class="test-1-bbh">Back home</a>
                         </div>
@@ -183,33 +187,33 @@
             <form action="#" id="register_form">
                 <div class="row">
                     <div class="col-12 col-md-6">
-                        <input type="text" class="form-control is-invalid test-2-name" placeholder="Frist name" id="frist_name" name="frist_name">
-                        <div class="invalid-feedback test-1-emfn"></div>
+                        <input type="text" class="form-control test-2-name" placeholder="Frist name" id="frist_name" name="frist_name">
+                        <div class="invalid-feedback test-1-emfn" class="errorMess">Введите Имя</div>
                     </div>
                     <div class="col-12 mt-3 col-md-6 mt-md-0">
-                        <input type="text" class="form-control is-invalid test-2-last" placeholder="Last name" id="last_name" name="last_name">
-                        <div class="invalid-feedback test-2-emln"></div>
+                        <input type="text" class="form-control test-2-last" placeholder="Last name" id="last_name" name="last_name">
+                        <div class="invalid-feedback test-2-emln" class="errorMess">Введите Фамилию</div>
                     </div>
                     <div class="col-12 mt-3 col-md-6">
                         <input type="text" class="form-control test-2-doc" placeholder="Document number" id="document_number" name="document_number">
-                        <div class="invalid-feedback test-2-emdn"></div>
+                        <div class="invalid-feedback test-2-emdn" class="errorMess">Введите паспорт</div>
                     </div>
                     <div class="col-12 mt-3 col-md-6">
                         <input type="text" class="form-control test-2-phone" placeholder="Phone" id="phone" name="phone">
-                        <div class="invalid-feedback test-2-empn"></div>
+                        <div class="invalid-feedback test-2-empn" class="errorMess">Введите номер телефона</div>
                     </div>
                     <div class="col-12 mt-3 col-md-6">
                         <input type="password" class="form-control test-2-pass" placeholder="Password" id="password" name="password">
-                        <div class="invalid-feedback test-2-empw"></div>
+                        <div class="invalid-feedback test-2-empw" class="errorMess">Введите пароль</div>
                     </div>
                     <div class="col-12 mt-3 col-md-6">
                         <input type="password" class="form-control test-2-pass2" placeholder="Password confirmation" id="password_confirm" name="password_confirm">
-                        <div class="invalid-feedback test-2-empw2"></div>
+                        <div class="invalid-feedback test-2-empw2">Повтарите пароль</div>
                     </div>
                     <div class="col-12 mt-3">
                         <button class="btn btn-primary w-100 test-2-btn" id="register_button">Register now</button>
                         <div class="text-center mt-2">
-                            Already have an account? <a href="login.html" class="test-2-blgn">Log in</a>
+                            Already have an account? <a href="#" class="test-2-blgn log_in">Log in</a>
                             or
                             <a href="index.html" class="test-2-bbhm">Back home</a>
                         </div>
