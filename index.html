@@ -38,31 +38,32 @@
         </div>
     </nav>
 <!-- Главная -->
-<div id="search">
+<div id="home">
     <div class="container">
+        <div id="home_serch">
         <section class="mt-5">
             <h2 class="mb-4">Flight search</h2>
 
-            <form action="search.html">
+            <form action="" id="search_form">
                 <div class="row">
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 pr-lg-0">
-                        <input type="text" class="form-control test-0-fd w-100" placeholder="From where">
+                        <input type="text" class="form-control test-0-fd w-100" placeholder="From where" id="from" name="from">
                         <div class="invalid-feedback">Error message</div>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-4 mt-3 col-xl-3 mt-sm-0 pr-lg-0">
-                        <input type="text" class="form-control test-0-fa w-100" placeholder="To where">
+                        <input type="text" class="form-control test-0-fa w-100" placeholder="To where" id="to" name="to">
                         <div class="invalid-feedback">Error message</div>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-2 mt-3 col-xl-2 mt-lg-0 pr-lg-0">
-                        <input type="text" class="form-control test-0-fdt" placeholder="Departing">
+                        <input type="text" class="form-control test-0-fdt" placeholder="Departing" id="date1" name="date1">
                         <div class="invalid-feedback">Error message</div>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-2 mt-3 col-xl-2 mt-lg-0 pr-xl-0">
-                        <input type="text" class="form-control test-0-fat" placeholder="Returning">
+                        <input type="text" class="form-control test-0-fat" placeholder="Returning" id="date2" name="date2">
                         <div class="invalid-feedback">Error message</div>
                     </div>
                     <div class="col-12 col-sm-6 col-lg-2 mt-3 col-xl-1 mt-lg-0 pr-xl-0">
-                        <select class="form-control test-0-fnp">
+                        <select class="form-control test-0-fnp" id="passengers" name="passengers">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -80,6 +81,7 @@
                 </div>
             </form>
         </section>
+        </div>
         
 
         <section class="mt-5">
@@ -154,16 +156,16 @@
         <section class="mt-5 w-75">
             <h2 class="mb-5 text-center">Log in</h2>
 
-            <form action="profile.html" id="login_form">
+            <form action="" id="login_form">
                 <div class="row">
                     <div class="col-12">
                         <!-- is-invalid class show error message -->
-                        <input type="text" class="form-control is-invalid test-1-fpn" placeholder="Phone" id="login_phone">
-                        <div class="invalid-feedback test-1-emph"  id="errorMess">Введите номер телефона</div>
+                        <input type="text" class="form-control test-1-fpn" placeholder="Phone" id="login_phone">
+                        <div class="invalid-feedback test-1-emph phone"  id="errorMess">Введите номер телефона</div>
                     </div>
                     <div class="col-12 mt-2">
                         <input type="password" class="form-control test-1-fps" placeholder="Password" id="login_pass">
-                        <div class="invalid-feedback test-1-emps" id="errorMess">Введите пароль</div>
+                        <div class="invalid-feedback test-1-emps password" id="errorMess">Введите пароль</div>
                     </div>
                     <div class="col-12 mt-4">
                         <button class="btn btn-primary w-100 test-1-fbs" id="login_button">Log in</button>
@@ -428,11 +430,7 @@
                 <a href="index.html" class="btn btn-sm btn-secondary test-4-bback">Back</a>
             </div>
 
-            <h5 class="mt-4 mb-3">
-                <span class="test-4-fif1">Saransk</span>
-                ->
-                <span class="test-4-fit1">Moscow</span>
-            </h5>
+            <h5 class="mt-4 mb-3" id="search_name1"></h5>
             <table class="table table-hover table-bordered">
                 <tr>
                     <th>Flight</th>
@@ -474,11 +472,7 @@
                 </tr>
             </table>
 
-            <h5 class="mt-4 mb-3">
-                <span class="test-4-fif2">Moscow</span>
-                ->
-                <span class="test-4-fit2">Saransk</span>
-            </h5>
+            <h5 class="mt-4 mb-3" id="search_name2"></h5>
             <table class="table table-hover table-bordered">
                 <tr>
                     <th>Flight</th>
@@ -595,20 +589,20 @@
                 <button class="btn btn-primary btn-sm test-5-add">Add passenger</button>
             </div>
 
-            <form action="booking_management.html">
+            <form action="" id="booking_form">
 
                 <div class="row">
                     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 pr-lg-0">
-                        <input type="text" class="form-control test-5-name w-100" placeholder="First name">
+                        <input type="text" class="form-control test-5-name w-100 booking_first_name" placeholder="First name">
                     </div>
                     <div class="col-12 col-sm-6 col-lg-4 mt-3 col-xl-3 mt-sm-0 pr-lg-0">
-                        <input type="text" class="form-control test-5-last w-100" placeholder="Last name">
+                        <input type="text" class="form-control test-5-last w-100 booking_last_name" placeholder="Last name">
                     </div>
                     <div class="col-12 col-sm-6 col-lg-2 mt-3 col-xl-2 mt-lg-0 pr-lg-0">
-                        <input type="text" class="form-control test-5-dob" placeholder="Date of Birth">
+                        <input type="text" class="form-control test-5-dob booking_birt" placeholder="Date of Birth">
                     </div>
                     <div class="col-12 col-sm-6 col-lg-2 mt-3 col-xl-2 mt-lg-0 pr-xl-0">
-                        <input type="text" class="form-control test-5-doc" placeholder="Document number">
+                        <input type="text" class="form-control test-5-doc booking_docement_numder" placeholder="Document number">
                     </div>
                     <div class="col-12 col-xl-2 mt-3 mt-xl-0">
                         <button class="btn btn-danger btn-sm form-control test-5-bremove">Remove</button>
