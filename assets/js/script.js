@@ -72,7 +72,17 @@ $(document).ready(function () {
 		$('#login').hide();
 		$('#home').hide();
 	});
-	
+	    //Выделение нужных рейсов в таблицах
+    $('#to_table tbody').on('click', 'tr', function () {
+        $('#to_table tr').removeClass('selected');
+        $(this).addClass('selected');
+        selected_to = this.rowIndex - 1;
+    });
+    $('#back_table tbody').on('click', 'tr', function () {
+        $('#back_table tr').removeClass('selected');
+        $(this).addClass('selected');
+        selected_back = this.rowIndex - 1;
+    });
 
 	//Авторизация
 	$('#login_form').submit(function (event) {
@@ -135,16 +145,42 @@ $(document).ready(function () {
 		$.each(val.data.flights_to, function (index, value) {
 			let hours = dat(value.from.time, value.to.time, 1);
 			let minutes = dat(value.from.time, value.to.time, 1);
-			$('#search_name1').html(`<span class="test-4-fif1">${value.from.city}</span>
-				->
-				<span class="test-4-fif1">${value.to.city}</span>`) 
+			$('#search_name1').append(`<tr>
+                    <td class="test-4-fn">${value.flight_code}</td>
+                    <td class="test-4-at">Bombardier CRJ200 ${index}</td>
+                    <td>
+                        <span class="test-4-dd">${value.from.date}</span>
+                        at
+                        <span class="test-4-dt">${value.from.time}</span>
+                    </td>
+                    <td class="test-4-aatime">${value.to.time}</td>
+                    <td class="test-4-ft">
+                        <span class="test-4-fhour"></span>${hour}
+                        <span class="test-4-fminutes"></span>${minutes}
+                    </td>
+                    <td class="test-4-fp">${value.cost}</td>
+                </tr>
+`) 
 		})
 		$.each(val.data.flights_back, function (index, value) {
 			let hours = dat(value.from.time, value.to.time, 1);
 			let minutes = dat(value.from.time, value.to.time, 1);
-			$('#search_name2').html(`<span class="test-4-fif1">${value.from.city}</span>
-				->
-				<span class="test-4-fif1">${value.to.city}</span>`) 
+			$('#search_name2').append(`<tr>
+                    <td class="test-4-fn">${value.flight_code}</td>
+                    <td class="test-4-at">Bombardier CRJ200 ${index}</td>
+                    <td>
+                        <span class="test-4-dd">${value.from.date}</span>
+                        at
+                        <span class="test-4-dt">${value.from.time}</span>
+                    </td>
+                    <td class="test-4-aatime">${value.to.time}</td>
+                    <td class="test-4-ft">
+                        <span class="test-4-fhour"></span>${hour}
+                        <span class="test-4-fminutes"></span>${minutes}
+                    </td>
+                    <td class="test-4-fp">${value.cost}</td>
+                </tr>
+`) 
 		})
 	};
 	//Информация о пользователе
@@ -164,3 +200,87 @@ $(document).ready(function () {
 		})
 	};
 });
+function booking(selected_to, selected_back, val) {
+        let cost_to;
+        let cost_back;
+        let id_flight_from;
+        let id_flight_back;
+        let date_flight_from;
+        let date_flight_back;
+
+        hide_all();
+        $('#booking_page').show();
+        $.each(val.data.flights_to, function (index, value) {
+            if (index == selected_to) {
+                cost_to = value.cost;
+                id_flight_from = value.flight_id;
+                date_flight_from = value.from.date;
+                $('#flight_table tbody').append(
+                    `              
+                <tr>
+                    <td class="test-5-fc">${value.flight_code}</td>
+                    <td>
+                        <span class="test-5-from-cn">${value.from.city}</span>,
+                        <span class="test-5-from-an"> ${value.from.airport}</span>
+                    </td>
+                    <td>
+                        <span class="test-5-dd">${value.from.date}</span>
+                        at
+                        <span class="test-5-dt">${value.from.time}</span>
+                    </td>
+                    <td class="test-5-to">
+                        <span class="test-5-to-cn">${value.to.city}</span>,
+                        <span class="test-5-to-an">${value.to.airport}</span>
+                    </td>
+                    <td class="test-5-at">09:30</td>
+                    <td class="test-5-fp">${value.cost}</td>
+                </tr>
+
+                    `
+                )
+
+            }
+        })
+        $.each(val.data.flights_back, function (index, value) {
+            if (index == selected_back) {
+                cost_back = value.cost;
+                id_flight_back = value.flight_id;
+                date_flight_back = value.from.date;
+                $('#flight_table tbody').append(
+                    `              
+                <tr>
+                    <td class="test-5-fc">${value.flight_code}</td>
+                    <td>
+                        <span class="test-5-from-cn">${value.from.city}</span>,
+                        <span class="test-5-from-an"> ${value.from.airport}</span>
+                    </td>
+                    <td>
+                        <span class="test-5-dd">${value.from.date}</span>
+                        at
+                        <span class="test-5-dt">${value.from.time}</span>
+                    </td>
+                    <td class="test-5-to">
+                        <span class="test-5-to-cn">${value.to.city}</span>,
+                        <span class="test-5-to-an">${value.to.airport}</span>
+                    </td>
+                    <td class="test-5-at">09:30</td>
+                    <td class="test-5-fp">${value.cost}</td>
+                </tr>
+
+                    `
+                )
+
+            }
+        })
+
+        $('#flight_table tbody').append(
+            `
+                 <tr>
+                    <td colspan="5" class="text-right">
+                        <b>Total cost</b>
+                    </td>
+                    <td colspan="1" class="text-right test-5-price">${cost_to + cost_back}</td>
+                </tr>
+
+            `
+        )
